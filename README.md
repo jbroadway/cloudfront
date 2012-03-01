@@ -59,3 +59,8 @@ The file path is simply wrapped in `{! !}` tags (the single spaces are optional 
 ignored), and the file path gets `cloudfront` added to it. This passes the file path to the
 CloudFront app's main handler to be rewritten as a CloudFront reference.
 
+Alternately, you can simply refer to the same file paths directly on the CDN like this:
+
+```html
+<img src="http://cdn.example.com/files/images/logo.png" />
+```
