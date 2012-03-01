@@ -1,7 +1,7 @@
 # CloudFront
 
-This is a ridiculously simple app to help integrate an Elefant website
-with the [Amazon CloudFront](http://aws.amazon.com/cloudfront/) content
+This is a ridiculously simple app to help integrate an [Elefant](http://www.elefantcms.com/)
+website with the [Amazon CloudFront](http://aws.amazon.com/cloudfront/) content
 distribution network (CDN).
 
 ## Setup
