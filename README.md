@@ -59,8 +59,39 @@ The file path is simply wrapped in `{! !}` tags (the single spaces are optional 
 ignored), and the file path gets `cloudfront` added to it. This passes the file path to the
 CloudFront app's main handler to be rewritten as a CloudFront reference.
 
+You can also call it directly via PHP like this:
+
+```php
+<?php
+
+echo $this->run ('cloudfront/files/images/logo.png');
+
+?>
+```
+
 Alternately, you can simply refer to the same file paths directly on the CDN like this:
 
 ```html
 <img src="http://cdn.example.com/files/images/logo.png" />
+```
+
+This is more direct and eliminates the extra handler call. The dynamic handler does do some
+extra checking of the validity of the requested file, which can be useful for dynamic requests
+where the file name is not known ahead of time, at the expense of being slightly less optimized.
+So where possible, use a direct URL, and where the file requested is dynamic, it may be better
+to use the handler.
+
+## Gzip compression
+
+CloudFront doesn't automatically gzip files on its own, but you can add a few lines to your
+server configuration to ensure that it correctly sends gzipped files whenever possible. Here
+is a brief configuration for Nginx users that will tell CloudFront to serve correctly
+gzipped files:
+
+```
+gzip on;
+gzip_http_version 1.0;
+gzip_proxied any;
+gzip_types text/css application/x-javascript;
+gzip_vary on;
 ```
