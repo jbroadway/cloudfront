@@ -13,7 +13,14 @@ $file = join ('/', $this->params);
 
 if (strpos ($file, '..') !== false) {
 	// No requests containing .. in the path
-	exit;
+	echo '';
+	return;
+}
+
+if (! file_exists ($file)) {
+	// Not a real file or file missing
+	echo '';
+	return;
 }
 
 // Pass it on (first request fetches and stores the file)
