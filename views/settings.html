@@ -1,0 +1,23 @@
+<div class="form">
+<form method="post" id="{{_form}}">
+
+<p>
+    {"CloudFront domain"}:<br />
+    <input type="text" name="domain" value="{{ domain|quotes }}" size="40" placeholder="ex: xyz.cloudfront.net, cdn.mydomain.com" />
+    <span class="notice" id="domain-notice">{"Please enter your CloudFront domain."}</span>
+</p>
+
+<p>
+	{"Protocol"}:<br />
+	<select name="protocol">
+		<?= Form::option ('https', 'https', $data->protocol) ?>
+		<?= Form::option ('http', 'http', $data->protocol) ?>
+	</select>
+</p>
+
+<p>
+    <button>{"Save Settings"}</button>
+</p>
+
+</form>
+</div>

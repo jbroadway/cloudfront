@@ -39,9 +39,9 @@ Subdomain         Record Type   IP or Domain
 cdn.example.com   CNAME         d604721fxaaqy9.cloudfront.net
 ```
 
-5\. Copy the `cloudfront` app into your Elefant install's `apps` folder. Edit the file
-`apps/cloudfront/conf/config.php` and enter the Amazon AWS CDN domain name (from step 3)
-into the `domain` field.
+5\. Copy the `cloudfront` app into your Elefant install's `apps` folder, then visit
+Extras > CloudFront in the Elefant admin toolbar and enter the Amazon AWS CDN domain name
+(from step 3) into the `domain` field.
 
 If you decided not to use a CNAME and skipped steps 3 and 4, simply copy the domain under
 the Domain Name tab for your newly created CloudFront distribution and use that instead.
@@ -72,7 +72,7 @@ echo $this->run ('cloudfront/files/images/logo.png');
 Alternately, you can simply refer to the same file paths directly on the CDN like this:
 
 ```html
-<img src="http://cdn.example.com/files/images/logo.png" />
+<img src="https://cdn.example.com/files/images/logo.png" />
 ```
 
 This is more direct and eliminates the extra handler call. The dynamic handler does do some
